@@ -15,8 +15,9 @@ import "../styles/global.css";
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<div class="fixed inset-0 bg-[url('/noise.svg')] opacity-30 mix-blend-multiply h-full w-full bg-cover bg-repeat -z-50"/>
 		<Header />
-		<main class="mt-16">
+		<main class="mt-16 container mx-auto">
 			<slot />
 		</main>
 	</body>

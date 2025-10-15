@@ -1,8 +1,25 @@
 ---
+import { Button } from '@/components/ui/button';
 import Layout from '../layouts/Layout.astro';
 
 ---
 
 <Layout>
-	<h1>hola</h1>
+	<section class="grid grid-cols-2 min-h-[80dvh] items-center place-items-center py-8">
+		<div class="flex flex-col justify-center items-center gap-8 max-w-screen-sm px-4 mx-auto">
+			<div class="flex flex-col gap-4 items-start">
+				<h1 class="text-6xl serif font-black text-pretty w-full tracking-tighter">I'm Axel, your<br/>Full-Stack Developer</h1>
+				<p class="text-2xl">Bringing websites to life, one coffee at a time</p>
+			</div>
+			<div class="flex justify-start w-full gap-2">
+				<Button size="lg" variant="secondary">Previous Work</Button>
+				<Button size="lg" variant="secondary">Contact</Button>
+			</div>
+		</div>
+		<div class="relative">
+			<img src="/placeholder.png" alt="Portrait" class="max-h-120 rounded-4xl">
+			<img src="/icons/code.png" alt="Terminal window" class="size-50 absolute -bottom-20 -right-20 rotate-12">
+			<img src="/icons/sparks.png" alt="Sparks" class="size-50 absolute -top-20 -left-20">
+		</div>
+	</section>
 </Layout>
