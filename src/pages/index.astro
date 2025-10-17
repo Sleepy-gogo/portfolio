@@ -1,11 +1,12 @@
 ---
 import { Button } from '@/components/ui/button';
 import Layout from '../layouts/Layout.astro';
+import TechBadge from '@/components/showcase/TechBadge.astro';
 
 ---
 
 <Layout>
-	<section class="grid grid-cols-2 min-h-[80dvh] items-center place-items-center py-8">
+	<section class="grid grid-cols-2 min-h-[80dvh] items-center place-items-center py-8 mb-8">
 		<div class="flex flex-col justify-center items-center gap-8 max-w-screen-sm px-4 mx-auto">
 			<div class="flex flex-col gap-4 items-start">
 				<h1 class="text-6xl serif font-black text-pretty w-full tracking-tighter">I'm Axel, your<br/>Full-Stack Developer</h1>
@@ -20,6 +21,15 @@ import Layout from '../layouts/Layout.astro';
 			<img src="/placeholder.png" alt="Portrait" class="max-h-120 rounded-4xl">
 			<img src="/icons/code.png" alt="Terminal window" class="size-50 absolute -bottom-20 -right-20 rotate-12">
 			<img src="/icons/sparks.png" alt="Sparks" class="size-50 absolute -top-20 -left-20">
+		</div>
+	</section>
+	<section class="py-8 flex flex-col gap-6 px-2">
+		<h2 class="serif font-black tracking-tighter text-center text-5xl">My previous work</h2>
+		<p class="text-lg text-center text-pretty max-w-screen-lg mx-auto">I've had the opportunity to work on a variety of projects, ranging from small personal websites to full-stack platforms for medium-sized freelance clients. Here are a few examples of projects I've been involved in</p>
+		<div class="flex flex-col gap-4">
+			{["next" as const, "astro" as const, 'svelte' as const, 'tailwind' as const].map(techItem => (
+				<TechBadge techId={techItem} />
+			))}
 		</div>
 	</section>
 </Layout>
