@@ -1,7 +1,8 @@
 ---
 import { Button } from '@/components/ui/button';
 import Layout from '../layouts/Layout.astro';
-import TechBadge from '@/components/showcase/TechBadge.astro';
+import { projects } from '@/lib/project-data';
+import Project from '@/components/showcase/Project.astro'
 
 ---
 
@@ -25,11 +26,13 @@ import TechBadge from '@/components/showcase/TechBadge.astro';
 	</section>
 	<section class="py-8 flex flex-col gap-6 px-2">
 		<h2 class="serif font-black tracking-tighter text-center text-5xl">My previous work</h2>
-		<p class="text-lg text-center text-pretty max-w-screen-lg mx-auto">I've had the opportunity to work on a variety of projects, ranging from small personal websites to full-stack platforms for medium-sized freelance clients. Here are a few examples of projects I've been involved in</p>
-		<div class="flex flex-col gap-4">
-			{["next" as const, "astro" as const, 'svelte' as const, 'tailwind' as const].map(techItem => (
-				<TechBadge techId={techItem} />
-			))}
+		<p class="text-lg text-center text-pretty max-w-screen-lg mx-auto">A selection of the most recent projects I've been involved in</p>
+		<div class="grid xl:grid-cols-2 gap-4 mt-6">
+			{projects.map(
+				(item, i) => (
+					<Project project={item} side={i % 2 == 0 ? "right" : "left"}/>
+			)
+			)}
 		</div>
 	</section>
 </Layout>
