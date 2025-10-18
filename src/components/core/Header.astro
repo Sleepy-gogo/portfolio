@@ -1,8 +1,9 @@
 ---
 import { Button } from '../ui/button';
+import { MobileSidebar } from './MobileSidebar';
 
 const navigation = [
-  { href: '#projects', label: 'Project' },
+  { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
   { href: '#stack', label: 'Stack' }
 ];
@@ -10,11 +11,10 @@ const navigation = [
 
 <header
   id="headernav"
-  class="fixed top-0 w-full left-0 right-0 container grid grid-cols-3 items-end mx-auto p-4 pl-5 pt-3 z-50 rounded-full data-[scrolled=true]:bg-background data-[scrolled=true]:border border-foreground data-[scrolled=true]:mt-2 data-[scrolled=true]:shadow-lg shadow-primary transition-all
-  "
+  class="fixed top-0 w-full left-0 right-0 container grid grid-cols-2 md:grid-cols-3 items-end mx-auto p-4 pl-6 z-50 sm:rounded-full data-[scrolled=true]:bg-background data-[scrolled=true]:border border-foreground sm:data-[scrolled=true]:mt-2 data-[scrolled=true]:shadow-lg shadow-primary transition-all"
 >
   <a href="/" class="font-black text-4xl tracking-tight serif">Axel</a>
-  <nav class="justify-self-center h-full">
+  <nav class="justify-self-center h-full md:block hidden">
     <ul class="flex gap-2 items-center h-full">
       {
         navigation.map((navItem) => (
@@ -30,19 +30,17 @@ const navigation = [
       }
     </ul>
   </nav>
-  <div class="justify-self-end">
-    <Button variant="secondary">My CV</Button>
-  </div>
+  <Button variant="secondary" className="justify-self-end md:inline-flex hidden"
+    >My CV</Button
+  >
+  <MobileSidebar client:load navItems={navigation} />
 </header>
 
 <script>
-  window.addEventListener(
-    'scroll',
-    () => {
-      const header = document.getElementById('headernav');
-      if (!header) return;
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('headernav');
+    if (!header) return;
 
-      header.dataset.scrolled = window.scrollY > 10 ? 'true' : 'false';
-    }
-  );
+    header.dataset.scrolled = window.scrollY > 10 ? 'true' : 'false';
+  });
 </script>
